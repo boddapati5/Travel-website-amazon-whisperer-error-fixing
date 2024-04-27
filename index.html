@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .navbar, footer { background: #007bff; color: #e6e6e6; padding: 10px 20px; text-align: center; } /* Adjusted text color */
+        .hero { padding: 20px; background: #e9ecef; text-align: center; }
+        .destinations { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .destination { margin: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .cart { position: fixed; right: 0; top: 0; width: 200px; background: #f4f4f4; padding: 20px; }
+        .cart-items { list-style-type: none; padding-left: 0; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">Travel Agency</div>
+
+<div class="hero">
+    <h1>Welcome to Our Travel Agency</h1>
+    <p>Explore the world with us.</p>
+</div>
+
+<div class="destinations">
+    <div class="destination">
+        <h2>Paris</h2>
+        <p>Price: $1000</p>
+        <button class="add-to-cart-btn" data-name="Paris" data-price="1000">Add to Cart</button>
+    </div>
+    <!-- Add more destinations here -->
+</div>
+
+<div class="cart">
+    <h4>Cart</h4>
+    <ul class="cart-items"></ul>
+</div>
+
+<footer>© 2023 Travel Agency</footer>
+
+<script>
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const name = button.getAttribute('data-name');
+            const price = button.getAttribute('data-price');
+            const cartItems = document.querySelector('.cart-items');
+            const li = document.createElement('li');
+            li.textContent = `${name} - $${price}`;
+            cartItems.appendChild(li);
+        });
+    });
+</script>
+
+</body>
+</html>
